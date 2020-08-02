@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    build:
+      context: ./web
+    volumes:
+      - .:/web
+    command: yarn start
+    ports:
+      - "3001:3000"
+    tty: true
+  api:
+    build:
+      context: ./api
+    volumes:
+      - .:/api
+    command: /build/app
+    ports:
+      - "8080:8080"
